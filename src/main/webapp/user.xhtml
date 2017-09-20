@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:sec="http://www.springframework.org/security/tags">
+<h:head>
+    <title>SpringSecurity</title>
+</h:head>
+<h:body>
+
+    Dear <strong>#{request.remoteUser}</strong>, Welcome to User Page. <br/><br/>
+    <sec:authorize ifAllGranted="ADMIN">
+        <h:outputLabel value="#{helloWorld.secure}"/><br/>
+    </sec:authorize>
+    <h:outputLabel value="#{helloWorld.notSecure}"/><br/>
+
+
+    <h:link value="back" outcome="index" /><br/><br/>
+</h:body>
+</html>

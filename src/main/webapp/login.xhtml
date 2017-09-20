@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Spring Security  + JSF 2 + PrimeFaces 6  Integration Example</title>
+</h:head>
+<h:body>
+    <h3>Spring Security  + JSF 2 + PrimeFaces 6  Integration Example</h3>
+    <font color="red">
+        <h:outputLabel value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>
+    </font>
+    <form action="${request.contextPath}/appLogin" method="POST">
+        <p:outputLabel value="Enter UserName:" />
+        <input type="text" name="app_username"/><br/><br/>
+        <p:outputLabel value="Enter Password:" />
+        <input type="password" name="app_password"/> <br/><br/>
+        <input type="submit" value="Login"/>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+</h:body>
+</html>
