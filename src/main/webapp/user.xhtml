@@ -12,7 +12,7 @@
 <h:body>
 
     Dear <strong>#{request.remoteUser}</strong>, Welcome to User Page. <br/><br/>
-    <sec:authorize ifAllGranted="ADMIN">
+    <sec:authorize access="hasRole('ADMIN')">
         <h:outputLabel value="#{helloWorld.secure}"/><br/>
     </sec:authorize>
     <h:outputLabel value="#{helloWorld.notSecure}"/><br/>

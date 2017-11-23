@@ -8,13 +8,13 @@
     <title>SpringSecurity</title>
 </h:head>
 <h:body>
-    <h:outputLabel value="#{helloWorld.s2}"/><br/>
+    Dear <strong>#{request.remoteUser}</strong>, Welcome to Administrator Page. <br/><br/>
 
-    <sec:authorize ifAllGranted="ADMIN">
+    <sec:authorize access="hasRole('ADMIN')">
         <h:outputLabel value="#{helloWorld.secure}"/><br/>
     </sec:authorize>
 
-    <sec:authorize ifAnyGranted="USER, ADMIN">
+    <sec:authorize access="hasAnyRole('USER, ADMIN')">
         <h:outputLabel value="#{helloWorld.notSecure}"/><br/>
     </sec:authorize>
 
